@@ -1,0 +1,56 @@
+@model IEnumerable<ExpenseManagement.Models.Employee>
+
+@{ ViewData["Title"] = "Index"; }
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<!--<html>
+<head>
+    <title>Bai tap 2</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <section class="offer">
+        <h2>Don't miss special offer!</h2>
+        <p class="info">
+            Get it now for just $10! The price will be increased after 50 downloads
+        </p>
+
+        <p class="btn"><a href="">Get the latest version of Bootslander</a></p>
+    </section>
+</body>
+</html>-->
